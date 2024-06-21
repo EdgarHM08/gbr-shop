@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Angular Automatiza
+name: Angular Automatiza 
 
 # Controls when the workflow will run
 on:
@@ -9,9 +9,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+    
 permissions: write-all
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -21,28 +20,27 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: CheckOut
-      - uses: actions/checkout@v4
-      
+      - name: checkout
+        uses: actions/checkout@v4
+        
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.2
         with:
-            node-version: "20.13.1"    
-
-      - name: Instalar depencias
+          node-version: v20.13.1
+          
+      - name: instalar dependencias
         run: npm install
 
-      - name: Construir Applicacion
+      - name: Concutruir aplicacion
         run: npm run build:prod
-        
+
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4.0.0
         with:
-          build_dir: dist/gbr-shop/brower
+          build_dir: dist/gbr-shop/browser
           target_branch: gh-pages
         env:
           GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
-
         
 
      
