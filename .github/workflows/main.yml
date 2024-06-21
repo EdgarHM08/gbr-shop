@@ -29,7 +29,7 @@ jobs:
           node-version: v20.13.1
           
       - name: instalar dependencias
-        run: npm install
+        run: npm i
 
       - name: Concutruir aplicacion
         run: npm run build:prod
